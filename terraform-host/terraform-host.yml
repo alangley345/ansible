@@ -1,5 +1,10 @@
-- name: Install git
-  apt:
-    name: git
-    state: present
-    update_cache: yes
+- hosts: terraform.greatcatinternal.net
+  tasks:
+    - name: Install git
+      yum:
+        name: git
+        state: present
+        update_cache: yes
+  
+    - name: Run awscli install script
+      script: ../awscli.sh  
